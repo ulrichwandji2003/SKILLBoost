@@ -2,40 +2,91 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription - TEACH-ME</title>
     <style>
         body {
-            font-family: Arial;
-            background: #eef2f7;
-            padding: 20px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
+
         .container {
-            background: #fff;
+            background: rgba(0, 0, 0, 0.8);
             padding: 30px;
             border-radius: 10px;
-            max-width: 600px;
-            margin: auto;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+            /* height: 80%; */
+            text-align: center;
+            animation: fadeIn 0.5s ease-in-out;
         }
-        input, button {
+
+        .container h2 {
+            color: #ff9800;
+            margin-bottom: 20px;
+        }
+
+        .container input,
+        .container button {
             width: 100%;
             padding: 12px;
-            margin-top: 10px;
-            border: 1px solid #ccc;
+            margin: 10px 0;
+            border: none;
             border-radius: 5px;
+            font-size: 1em;
         }
-        button {
-            background-color: #28a745;
-            color: white;
+
+        .container input {
+            background: #fff;
+            color: #333;
+        }
+
+        .container button {
+            background: #ff9800;
+            color: #fff;
             font-weight: bold;
             cursor: pointer;
+            transition: background 0.3s ease;
         }
-        button:hover {
-            background-color: #218838;
+
+        .container button:hover {
+            background: #e68900;
         }
-        h2 {
-            text-align: center;
-            color: #333;
+
+        .container label {
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                max-width: 90%;
+            }
         }
     </style>
 </head>
@@ -58,10 +109,33 @@
     <script>
         document.getElementById("inscriptionForm").addEventListener("submit", function(e) {
             const email = document.querySelector('input[name="email"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+
+            // Vérification de l'email
             if (!email.includes("@")) {
                 alert("Veuillez saisir une adresse email valide.");
                 e.preventDefault();
+                return;
             }
+
+            // Vérification du mot de passe (minimum 6 caractères)
+            if (password.length < 6) {
+                alert("Le mot de passe doit contenir au moins 6 caractères.");
+                e.preventDefault();
+                return;
+            }
+        });
+
+        // Animation d'apparition
+        document.addEventListener("DOMContentLoaded", function () {
+            const container = document.querySelector(".container");
+            container.style.opacity = 0;
+            container.style.transform = "translateY(-20px)";
+            setTimeout(() => {
+                container.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+                container.style.opacity = 1;
+                container.style.transform = "translateY(0)";
+            }, 100);
         });
     </script>
 </body>

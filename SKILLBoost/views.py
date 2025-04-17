@@ -33,6 +33,8 @@ def inscription(request):
             cv=cv
         )
         user.save()
+        if user:
+            return redirect("connexion")
         return render(request, 'connexion/connexion.html')
 
 
