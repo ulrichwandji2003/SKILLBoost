@@ -1,25 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SOFT-DEV-TECH - Formation en Programmation</title>
     <style>
         body {
-            background-color: #ff5d5d;
             font-family: Arial, sans-serif;
-            color: #333;
             margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: #fff;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .cta {
+            margin-top: 30px;
+        }
+
+        .cta a {
+            text-decoration: none;
+            background: #ff9800;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .cta a:hover {
+            background: #e68900;
+        }
+
+        .features {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features ul li {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
             padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+        }
+
+        footer p {
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <div>
-        <a href="{% url 'inscription' %}">INSCRIPTION</a>
-    </div>
-    <div>
-        <a href="{% url 'connexion' %}">CONNEXION</a>
-    </div>
+    <header>
+        <h1>🚀 Devenez un expert en génie logiciel et systèmes d'information avec SOFT-DEV-TECH ! 🚀</h1>
+        <p>
+            Vous rêvez de maîtriser les technologies du numérique et de vous lancer dans une carrière prometteuse en informatique ? 🎯<br>
+            SOFT-DEV-TECH vous propose une formation intensive et 100% pratique en génie logiciel et GSI, qui vous permettra d'acquérir des compétences solides et applicables immédiatement.
+        </p>
+        <div class="cta">
+            <a href="{% url 'connexion' %}">Se connecter</a>
+        </div>
+    </header>
+
+    <section class="features">
+        <h2>🔥 Pourquoi choisir cette formation ?</h2>
+        <ul>
+            <li>✅ Un programme complet couvrant le développement web et mobile, la programmation événementielle, la modélisation et bases de données, ainsi que l’infographie.</li>
+            <li>✅ 2 mois de formation avec un accompagnement personnalisé dans vos projets de soutenance pour vous aider à exceller.</li>
+            <li>✅ Une attestation de fin de formation qui valorise votre profil professionnel.</li>
+            <li>✅ Un tarif accessible : 35.000 FCFA, ou 40.000 FCFA avec un T-shirt SOFT-DEV-TECH.</li>
+            <li>✅ Un cadre idéal d’apprentissage à Douala, PK8 AU GSB Les Bambinos.</li>
+            <li>✅ Nombre de places limité – ne tardez pas à réserver votre place !</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>📍 Lieu : Douala, PK8 AU GSB Les Bambinos | 📞 Contact : 697767813 / 671460429 | 📧 Email : softdevtec55@gmail.com</p>
+        <p>🚀 Rejoignez-nous et faites partie des experts de demain ! 🎓🔥😊✨</p>
+    </footer>
 </body>
 </html>
