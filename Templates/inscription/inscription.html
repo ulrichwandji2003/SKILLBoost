@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription - TEACH-ME</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2f7;
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Formulaire d'inscription</h2>
+        <form id="inscriptionForm" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Nom complet" required>
+            <input type="email" name="email" placeholder="Adresse Email" required>
+            <input type="password" name="password" placeholder="Mot de passe" required>
+            <input type="text" name="institut" placeholder="Institut de provenance" required>
+            <label>Photo de profil :</label>
+            <input type="file" name="photo" required>
+            <label>CV (facultatif) :</label>
+            <input type="file" name="cv">
+            <button type="submit">S'inscrire</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById("inscriptionForm").addEventListener("submit", function(e) {
+            const email = document.querySelector('input[name="email"]').value;
+            if (!email.includes("@")) {
+                alert("Veuillez saisir une adresse email valide.");
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

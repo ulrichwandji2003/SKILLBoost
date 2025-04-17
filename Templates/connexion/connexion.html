@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion - TEACH-ME</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f3f6fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-box {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-box">
+        <h2>Connexion</h2>
+        <form method="POST" id="loginForm">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="username" required>
+            <input type="password" name="password" placeholder="Mot de passe" required>
+            <select name="role" required>
+                <option value="">Je suis...</option>
+                <option value="stagiaire">Stagiaire</option>
+                <option value="formateur">Formateur</option>
+                <option value="admin">Administrateur</option>
+            </select>
+            <button type="submit">Se connecter</button>
+        </form>
+        {% if messages %}
+            {% for message in messages %}
+            <li class="{{ message.tags }}" style="color: red;">{{ message }}</li>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+            const role = document.querySelector('select[name="role"]').value;
+            if (!role) {
+                alert("Veuillez sélectionner votre rôle.");
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>

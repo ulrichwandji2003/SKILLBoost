@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Tableau de Bord - Stagiaire | TEACH-ME</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f6f9;
+        }
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #007bff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            color: #007bff;
+        }
+        .btn {
+            padding: 10px 15px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Bienvenue sur TEACH-ME, {{ stagiaire.nom }}</h1>
+</header>
+
+<nav>
+    <a href="#">Mon Profil</a>
+    <a href="#">Forum</a>
+    <a href="#">Paiement</a>
+    <a href="#">Attestation</a>
+    <a href="#">Déconnexion</a>
+</nav>
+
+<div class="container">
+    <div class="card">
+        <h3>Informations de Formation</h3>
+        <p><strong>Spécialité :</strong> </p>
+        <p><strong>Institut :</strong> </p>
+        <p><strong>Statut Paiement :</strong> </p>
+    </div>
+
+    <div class="card">
+        <h3>Actions Rapides</h3>
+        <a href="" class="btn">Accéder au Forum</a>
+        <a href="" class="btn">Effectuer un Paiement</a>
+        <a href="" class="btn">Télécharger l'attestation</a>
+    </div>
+</div>
+
+<script>
+    // Script pour de futures notifications ou alertes dynamiques
+    console.log("Tableau de bord chargé pour l'utilisateur : ");
+</script>
+
+</body>
+</html>
